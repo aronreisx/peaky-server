@@ -6,7 +6,9 @@
   "author": "aronreisx <aronreis2@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node --inspect --transpileOnly --ignore-watch node_modules src/server.ts",
+    "start": "pm2 start --no-autorestart dist/server.js",
+    "dev:ts": "ts-node-dev --inspect=14007 --transpile-only --ignore-watch node_modules src/server.ts",
+    "dev:js": "nodemon dist/server.js",
     "build": "tsc",
     "test": "jest"
   },
