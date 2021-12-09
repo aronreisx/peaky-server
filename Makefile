@@ -5,9 +5,10 @@ run:
 	docker run -d \
 	-p ${DB_PORT}:${DB_PORT} \
 	-v ${PWD}/data:/var/lib/postgresql/data \
+	-e POSTGRES_USER=${DB_USER} \
 	-e POSTGRES_PASSWORD=${DB_PASS} \
 	-e POSTGRES_DB=${DB_NAME} \
-	--name ${DB_NAME} \
+	--name ${DB_CONTAINER} \
 	${DB_IMAGE}:${DB_VERSION}
 
 .PHONY: stop
@@ -28,7 +29,7 @@ terminal:
 .PHONY: wipe-all
 wipe-all:
 	docker rm -fv ${DB_CONTAINER} && \
-	rm -rf database
+	rm -rf data
 
 .PHONY: remove-modules
 remove-modules:
