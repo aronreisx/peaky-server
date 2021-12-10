@@ -7,10 +7,15 @@
   "license": "MIT",
   "scripts": {
     "start": "pm2 start --no-autorestart dist/server.js",
-    "dev:ts": "ts-node-dev --inspect=14007 --transpile-only --ignore-watch node_modules src/server.ts",
+    "dev:ts": "tsnd --inspect=14007 --transpile-only --ignore-watch node_modules -r dotenv/config src/server.ts",
     "dev:js": "nodemon dist/server.js",
     "build": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "typeorm": "tsnd ./node_modules/typeorm/cli.js",
+    "m:run": "yarn typeorm migration:run",
+    "m:create": "yarn typeorm migration:create -n",
+    "m:show": "yarn typeorm migration:show",
+    "m:revert": "yarn typeorm migration:revert"
   },
   "dependencies": {
     "date-fns": "^2.27.0",
