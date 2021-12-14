@@ -11,6 +11,10 @@ run:
 	--name ${DB_CONTAINER} \
 	${DB_IMAGE}:${DB_VERSION}
 
+.PHONY: start
+start:
+	docker start ${DB_CONTAINER}
+
 .PHONY: stop
 stop:
 	docker stop ${DB_CONTAINER}
