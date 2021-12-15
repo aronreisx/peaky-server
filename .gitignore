@@ -2,3 +2,7 @@ node_modules
 dist
 .env
 data
+tmp/*
+!tmp/.gitkeep
+.vscode/*
+!.vscode/launch.json
