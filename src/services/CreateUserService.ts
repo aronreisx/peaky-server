@@ -1,6 +1,7 @@
 import { hash } from "argon2";
 import { getRepository } from "typeorm";
 
+import AppError from "../errors/AppError";
 import User from "../models/User";
 
 interface IRequest {
@@ -18,7 +19,7 @@ class CreateUserService {
     });
 
     if (checkUserExists) {
-      throw new Error("Email address is already used.");
+      throw new AppError("Email address is already used.");
     }
 
     const hashedPassword = await hash(password);
