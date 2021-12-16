@@ -23,6 +23,9 @@
     "rules": {
       "prettier/prettier": "error",
       "camelcase": "off",
+      "@typescript-eslint/no-unused-vars": ["error", {
+        "argsIgnorePattern": "^_"
+      }],
       "import/no-unresolved": "error",
       "@typescript-eslint/naming-convention": [
         "error",
